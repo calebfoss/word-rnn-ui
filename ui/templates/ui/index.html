@@ -21,13 +21,18 @@
 		<textarea name='custom text'></textarea><br>
 		<input type="submit" value="Train on custom input" name='trainCustom' />
 		<input type="submit" value="Use pretrained input" name='customOff' />
+        <br>
+        <br>
+        <br>
 	{% endif %}
 	{%if custom == False %}
 		<h2>Number of words to add: <input type="number" value={{wordcount}} min='1' name="WordCount"/></h2>
 		<br>
 		<input type="submit" value="Generate text" name='submit' />
-		<input type="submit" value="Reset" name='reset' />
 	{%endif%}
+
+    <input type="submit" value="Clear Output" name='reset' />
+
 </form>
 <h1>Output: </h1>
 <body>{% if result != null %}{{result}}{% endif %}</body>
