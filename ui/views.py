@@ -12,7 +12,8 @@ def index(request):
     global context
     if len(context) == 0:
         context = {'save_dir_list' : save_dir_list}
-    context['custom'] = False
+    if 'custom' not in context.keys():
+        context['custom'] = False
     args = {
     'save_dir':'ui/save/jurassicPark',
     'n':200,
