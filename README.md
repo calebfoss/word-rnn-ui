@@ -1,31 +1,21 @@
 ## Synopsis
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
-
-## Code Example
-
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
-
-## Motivation
-
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+This project uses Sung Kim's Word-Rnn-Tensorflow (https://github.com/hunkim/word-rnn-tensorflow), which uses code from https://github.com/sherjilozair/char-rnn-tensorflow which was inspired from Andrej Karpathy's char-rnn. Our UI generates text from a set of pretrained inputs, and the user can switch between inputs as they add more text.
 
 ## Installation
 
-Provide code examples and explanations of how to get the project.
+This project requires installing Python and Django.
 
-## API Reference
+To use the UI, cd into the "ui" directory and run
+python manage.py runserver
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+Then navigate to your local host on your browser and add /ui
+(ex: http://localhost:8000/ui/)
 
-## Tests
+## Instructions for UI
 
-Describe and show how to run the tests with code examples.
+Select an input from the dropdown menu from which text will be generated.
+Choose the number of words to add.
+Click "generate text".
 
-## Contributors
-
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
-
-## License
-
-A short snippet describing the license (MIT, Apache, etc.)
+Each time "generate text" is clicked, text will be added to what has already been displayed, and the already generated text will be used to prime the next generation. When no text has yet been generated, a random word will be chosen from the input to prime the generation.  Click "clear output" to start over.
