@@ -17,8 +17,9 @@ Then navigate to your local host on your browser and add /ui
 
 ## Instructions for UI
 
-Select an input from the dropdown menu from which text will be generated.
-Choose the number of words to add.
+Select an input from the dropdown menu from which text will be generated. Choose the number of words to add.
+
 Click "generate text".
+
 
 Each time "generate text" is clicked, text will be added to what has already been displayed, and the already generated text will be used to prime the next generation. When no text has yet been generated, a random word will be chosen from the input to prime the generation.  Click "clear output" to start over.
