@@ -1,23 +1,29 @@
 <form action="#" method="post">
 	{% csrf_token %}
-	<h2>Training input: 
-	<select name='select training input'>
-		<option value='Custom'>Custom</option>
-		{% for save_dir in save_dir_list %}
-		   <option value={{save_dir.directory}}>
-		       {{save_dir.training_input_name}}
-		   </option>
-		{% endfor %}
-		{% if selected == 'selected' %}
-					<input type="text" name='custom text'/>
-		{% endif %}
-	</select>
-
-	</h2>
-	<h2>Number of words to add: <input type="number" value='1' min='1' name="WordCount"/></h2>
-	
-	<input type="submit" value="Generate text" name='submit' />
-	<input type="submit" value="Reset" name='reset' />
+	{%if custom == False %}
+		<h2>Training input: 
+		<select name='select_training_input'>
+			{% for save_dir in save_dir_list %}
+			   <option value={{save_dir.directory}}>
+			       {{save_dir.training_input_name}}
+			   </option>
+			{% endfor %}
+		</select>
+		<input type="submit" value="Add custom input" name='customOn' />
+		
+	{%endif%}
+	{%if custom == True %}
+		<h2>Enter custom text:</h2>
+		<textarea name='custom text'></textarea><br>
+		<input type="submit" value="Train on custom input" name='trainCustom' />
+		<input type="submit" value="Use pretrained input" name='customOff' />
+	{% endif %}
+	{%if custom == False %}
+		<h2>Number of words to add: <input type="number" value='1' min='1' name="WordCount"/></h2>
+		<br>
+		<input type="submit" value="Generate text" name='submit' />
+		<input type="submit" value="Reset" name='reset' />
+	{%endif%}
 </form>
 <h1>Output: </h1>
 <body>{% if result != null %}{{result}}{% endif %}</body>

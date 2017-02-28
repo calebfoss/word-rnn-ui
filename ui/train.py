@@ -8,7 +8,7 @@ import os
 from six.moves import cPickle
 
 from utils import TextLoader
-from model import Model
+from .model import Model
 
 
 def main():

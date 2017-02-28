@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Training_Input
 from .sample import sample
+from .train import train
+import argparse
 
 context = {}
 
@@ -10,6 +12,7 @@ def index(request):
     global context
     if len(context) == 0:
         context = {'save_dir_list' : save_dir_list}
+    context['custom'] = False
     args = {
     'save_dir':'ui/save/jurassicPark',
     'n':200,
@@ -17,9 +20,15 @@ def index(request):
     'pick':1,
     'sample':1}
     if request.method == 'POST':
+        # if request.POST.get('trainCustom'):
+        #     train(trainArguments())
+        if request.POST.get('customOff'):
+            context['custom'] = False
+        if request.POST.get('customOn'):
+            context['custom'] = True
         if request.POST.get('submit'): #submit button
-            if request.POST.get('select training input') != 'Custom':
-                args['save_dir'] = request.POST.get('select training input')
+            if request.POST.get('select_training_input') != 'Custom':
+                args['save_dir'] = request.POST.get('select_training_input')
             if request.POST.get('WordCount') and int(request.POST.get('WordCount')) > 0:
                 args['n'] = int(request.POST.get('WordCount')) #set number of words to generate
             if 'result' in context.keys() and len(context['result']) > 0:
