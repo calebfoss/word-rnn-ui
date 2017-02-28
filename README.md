@@ -7,7 +7,10 @@ This project uses Sung Kim's Word-Rnn-Tensorflow (https://github.com/hunkim/word
 This project requires installing Python and Django.
 
 To use the UI, cd into the "ui" directory and run
+
+```sh
 python manage.py runserver
+```
 
 Then navigate to your local host on your browser and add /ui
 (ex: http://localhost:8000/ui/)
