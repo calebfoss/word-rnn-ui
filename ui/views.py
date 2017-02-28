@@ -12,6 +12,8 @@ def index(request):
     global context
     if len(context) == 0:
         context = {'save_dir_list' : save_dir_list}
+    if 'training_dir' not in context.keys():
+        context['training_dir'] = save_dir_list[0].directory
     if 'custom' not in context.keys():
         context['custom'] = False
     if 'wordcount' not in context.keys():
@@ -32,6 +34,7 @@ def index(request):
         if request.POST.get('submit'): #submit button
             if request.POST.get('select_training_input') != 'Custom':
                 args['save_dir'] = request.POST.get('select_training_input')
+                context['training_dir'] = args['save_dir']
             if request.POST.get('WordCount') and int(request.POST.get('WordCount')) > 0:
                 args['n'] = int(request.POST.get('WordCount')) #set number of words to generate
                 context['wordcount'] = args['n']

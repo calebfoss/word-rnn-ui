@@ -4,7 +4,11 @@
 		<h2>Training input: 
 		<select name='select_training_input'>
 			{% for save_dir in save_dir_list %}
-			   <option value={{save_dir.directory}}>
+			   <option value={{save_dir.directory}}
+               {%if save_dir.directory == training_dir %}
+                   selected
+               {% endif %}
+               >
 			       {{save_dir.training_input_name}}
 			   </option>
 			{% endfor %}
