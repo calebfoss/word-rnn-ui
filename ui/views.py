@@ -14,6 +14,8 @@ def index(request):
         context = {'save_dir_list' : save_dir_list}
     if 'custom' not in context.keys():
         context['custom'] = False
+    if 'wordcount' not in context.keys():
+        context['wordcount'] = 10
     args = {
     'save_dir':'ui/save/jurassicPark',
     'n':200,
@@ -32,6 +34,7 @@ def index(request):
                 args['save_dir'] = request.POST.get('select_training_input')
             if request.POST.get('WordCount') and int(request.POST.get('WordCount')) > 0:
                 args['n'] = int(request.POST.get('WordCount')) #set number of words to generate
+                context['wordcount'] = args['n']
             if 'result' in context.keys() and len(context['result']) > 0:
                 args['prime'] = context['result'] #if there is already generated text, use it to prime the new output
             context['result'] = sample(args) #generate new output

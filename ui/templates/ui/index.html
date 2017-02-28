@@ -19,7 +19,7 @@
 		<input type="submit" value="Use pretrained input" name='customOff' />
 	{% endif %}
 	{%if custom == False %}
-		<h2>Number of words to add: <input type="number" value='1' min='1' name="WordCount"/></h2>
+		<h2>Number of words to add: <input type="number" value={{wordcount}} min='1' name="WordCount"/></h2>
 		<br>
 		<input type="submit" value="Generate text" name='submit' />
 		<input type="submit" value="Reset" name='reset' />
