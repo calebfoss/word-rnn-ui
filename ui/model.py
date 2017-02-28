@@ -96,7 +96,7 @@ class Model():
         # print (prime) #print prime (commented out to avoid character errors)
         # loop through words in prime
         for word in prime.split()[:-1]:
-            print (word) #print word
+            # print (word) #print word (commented out to avoid character errors)
             x = np.zeros((1, 1))
             x[0, 0] = vocab.get(word,0)
             feed = {self.input_data: x, self.initial_state:state}
