@@ -93,7 +93,7 @@ class Model():
         state = sess.run(self.cell.zero_state(1, tf.float32)) #run session and save state
         if not len(prime) or prime == " ":
             prime  = random.choice(list(vocab.keys()))  #save prime
-        print (prime) #print prime
+        # print (prime) #print prime (commented out to avoid character errors)
         # loop through words in prime
         for word in prime.split()[:-1]:
             print (word) #print word

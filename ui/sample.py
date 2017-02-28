@@ -41,8 +41,8 @@ def sample(args):
         ckpt = tf.train.get_checkpoint_state(args['save_dir'])
         if ckpt and ckpt.model_checkpoint_path:
             saver.restore(sess, ckpt.model_checkpoint_path) #restore session with model checkpoint
-            #print sample from given model
-            print(model.sample(sess, words, vocab, args['n'], args['prime'], args['sample'], args['pick']))
+            #print sample from given model (commented out to avoid character errors)
+            # print(model.sample(sess, words, vocab, args['n'], args['prime'], args['sample'], args['pick']))
             return model.sample(sess, words, vocab, args['n'], args['prime'], args['sample'], args['pick'])
 
 
