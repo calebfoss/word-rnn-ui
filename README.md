@@ -23,3 +23,5 @@ Click "generate text".
 
 
 Each time "generate text" is clicked, text will be added to what has already been displayed, and the already generated text will be used to prime the next generation. When no text has yet been generated, a random word will be chosen from the input to prime the generation.  Click "clear output" to start over.
+
+[![Video demo link](https://img.youtube.com/vi/jY-wJ8wyG7I/0.jpg)](https://youtu.be/jY-wJ8wyG7I)
